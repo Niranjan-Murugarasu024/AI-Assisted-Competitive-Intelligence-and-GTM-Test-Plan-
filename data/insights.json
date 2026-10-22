@@ -1,0 +1,62 @@
+[
+  {
+    "id": "INSIGHT-001",
+    "title": "Gross vs. Net Pricing Obfuscation (The GST & Financing Escalator)",
+    "observation": "Three out of five evaluated providers (Simplilearn, Great Learning, Emeritus/IIT Delhi) quote baseline tuition exclusive of 18% GST in headline marketing promotional materials, resulting in a mandatory unadvertised surcharge of ₹35,000 to ₹54,000 at checkout. Total realized pricing ranges from ₹2,30,100 to ₹4,70,000.",
+    "evidence_ids": ["COMP-UPGRAD-001", "COMP-SIMPLI-002", "COMP-GRTLEA-003", "COMP-IITD-004", "COMP-ISI-005"],
+    "interpretation": "Educational platforms use headline-price masking to lower initial cognitive resistance during top-of-funnel consideration. When learners reach high-pressure sales calls, financing/EMI payments are emphasized ('only ₹7,999/month') to distract from the 18% GST inflation and lender financing interest.",
+    "alternative_explanation": "Providers operate across multiple corporate and international tax jurisdictions where B2B enterprise sponsorships or non-resident candidates are tax-exempt, prompting them to display net base tuition standardly.",
+    "business_implication": "A transparent 'all-in cost calculator' that discloses actual out-of-pocket costs (tuition + GST + mandatory exam fees + financing interest) establishes immediate trust and credibility with skeptical learners.",
+    "confidence": "High (Directly verifiable across published tuition fee schedules and enrollment checkouts)",
+    "remains_unknown": "The exact proportion of retail learners who drop out during the payment checkout step due to sudden GST sticker shock.",
+    "next_validation_action": "Conduct qualitative interviews in Experiment 1 specifically probing at what stage prospective buyers discovered the final after-tax total cost."
+  },
+  {
+    "id": "INSIGHT-002",
+    "title": "The Institutional Credential Halo vs. Legal Degree Reality",
+    "observation": "Programs prominently feature prestigious university brand logos (Purdue University, UT Austin McCombs, IIT Delhi) on landing pages, but the legal credential awarded is an 'Executive Continuing Education Certificate' or 'Bootcamp Completion Award', which does not confer alumni status or degree credit.",
+    "evidence_ids": ["COMP-SIMPLI-002", "COMP-GRTLEA-003", "COMP-IITD-004"],
+    "interpretation": "Platforms leverage institutional prestige ('Halo Effect') to justify premium fee structures (₹2L - ₹3.5L). Prospective students frequently conflate an executive certificate with a formal university degree, leading to post-enrollment remorse when they discover they cannot claim alumni network privileges or academic transfer credits.",
+    "alternative_explanation": "Universities intentionally partner with commercial aggregators via their continuing education divisions to monetize academic brand equity without diluting regular on-campus degree standards.",
+    "business_implication": "Proof-Before-Purchase can position itself as a neutral consumer advocate by providing a 'Credential Decoding Matrix' that demystifies degree vs. certificate vs. bootcamp status.",
+    "confidence": "High (Confirmed via fine print disclaimers on provider terms and university partner portals)",
+    "remains_unknown": "How hiring managers and technical recruiters in India/US actually weigh executive education certificates versus public GitHub portfolio evidence.",
+    "next_validation_action": "Survey 25 technical hiring managers on how they evaluate 'IIT Delhi CEP Certificate' vs 'Purdue Bootcamp' vs 'Verified Production Code Repo'."
+  },
+  {
+    "id": "INSIGHT-003",
+    "title": "Outcome Asymmetry: 'Placement Assistance' Conflated with Job Placement",
+    "observation": "Commercial platforms promise '360-degree career support', 'JobAssist', and 'exclusive job boards', yet official terms of service explicitly clarify that participation does not guarantee job interviews, placement, or minimum salary thresholds.",
+    "evidence_ids": ["COMP-UPGRAD-001", "COMP-SIMPLI-002", "COMP-GRTLEA-003", "COMP-IITD-004"],
+    "interpretation": "High-pressure sales funnels rely heavily on career transformation promises to close sales. However, the legal terms insulate providers from accountability, creating an asymmetric risk where the learner absorbs 100% of the financial burden while the provider takes upfront cash.",
+    "alternative_explanation": "In a volatile tech hiring market, no third-party educational vendor can responsibly guarantee macro hiring demand, making standard disclaimer clauses standard legal prudence.",
+    "business_implication": "Learners are hungry for pre-purchase de-risking: verifying their actual role capability before writing a ₹2.5L+ check. This validates the core value proposition of our diagnostic test.",
+    "confidence": "High (Directly stated in terms of service agreements across all reviewed providers)",
+    "remains_unknown": "The actual percentage of enrolled learners who secure a net-positive career transition attributable directly to the provider's internal portal vs self-directed applications.",
+    "next_validation_action": "Run user interviews (Experiment 1) to test if learners know the difference between 'placement support' and 'job guarantee'."
+  },
+  {
+    "id": "INSIGHT-004",
+    "title": "Project Claim Inflation: High Quantity vs. Production-Depth Gap",
+    "observation": "Marketing collateral highlights high project counts ('25+ projects', '12+ industry case studies'), but syllabus inspection reveals that the vast majority are pre-cleaned 45-minute Jupyter notebook walkthroughs with guided code snippets.",
+    "evidence_ids": ["COMP-UPGRAD-001", "COMP-SIMPLI-002", "COMP-GRTLEA-003"],
+    "interpretation": "Quantity is easier to market to beginners than engineering depth. However, tech hiring managers routinely discard cookie-cutter bootcamp projects (e.g., Titanic survival, Boston housing, MNIST classifiers) as lacking genuine software engineering or data validation rigor.",
+    "alternative_explanation": "Beginner learners need bite-sized scaffolded exercises to build initial confidence before tackling open-ended software architectures.",
+    "business_implication": "Offering a tangible mini-project with an objective evaluation rubric before purchase allows learners to taste real-world problem complexity and verify their intrinsic interest before committing 12 months.",
+    "confidence": "High (Evident from detailed syllabus schedules and GitHub repositories of past graduates)",
+    "remains_unknown": "Whether prospective learners find open-ended projects energizing or intimidating before enrolling.",
+    "next_validation_action": "Measure user completion rates of the diagnostic's suggested mini-project scope in Experiment 4."
+  },
+  {
+    "id": "INSIGHT-005",
+    "title": "Time Commitment Underestimation and Completion Drop-Off",
+    "observation": "Recommended weekly commitment is listed as 6 to 15 hours per week alongside full-time employment, but rigorous curricula (such as ISI's Applied Statistics or IIT Delhi's deep learning) realistically require 15-20+ hours for candidates without strong mathematical prerequisites.",
+    "evidence_ids": ["COMP-UPGRAD-001", "COMP-SIMPLI-002", "COMP-IITD-004", "COMP-ISI-005"],
+    "interpretation": "Understating weekly workload lowers friction during sales calls. When working professionals encounter advanced linear algebra, backpropagation calculus, or R programming, they experience severe cognitive fatigue, contributing to high attrition.",
+    "alternative_explanation": "Course designers calculate hours based on median learners with ideal prerequisites, rather than career switchers starting from scratch.",
+    "business_implication": "Our diagnostic's workload feasibility check (correlating weekly hours with prerequisite gaps) provides an honest, friction-reducing diagnostic that establishes our product as a trusted advisor.",
+    "confidence": "Moderate to High (Observed in syllabus requirements vs advertised marketing study plans)",
+    "remains_unknown": "Exact attrition rates across cohorts, as edtech providers treat graduation rates as proprietary confidential data.",
+    "next_validation_action": "Collect time-budget estimates and past online course drop-out histories in user discovery interviews."
+  }
+]

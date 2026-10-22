@@ -1,0 +1,122 @@
+[
+  {
+    "id": "EXP-001",
+    "title": "Prospective-Learner Discovery Interviews",
+    "theme": "Problem Discovery & Buyer Psychology",
+    "status": "Proposed",
+    "hypothesis": "Prospective AI/data learners who are actively comparing programs can articulate at least three distinct unaddressed anxieties regarding hidden costs, credential validity, and realistic workload.",
+    "target_audience": "Working professionals (2-8 years experience) in India/SE Asia currently researching or actively considering an AI/data upskilling program within the next 90 days (n=20).",
+    "method": "Semi-structured 30-minute qualitative video interviews using a neutral discovery protocol with zero sales pitching. Audio transcribed and coded for recurring friction themes.",
+    "control_treatment": "N/A (Exploratory qualitative inquiry). Balanced across non-technical switchers (n=10) and adjacent software engineers (n=10).",
+    "primary_metric": "Problem Resonance Rate: Percentage of interviewees who unprompted or strongly affirm that assessing hands-on skill fit before paying ₹2L+ is their single biggest anxiety (Target: ≥ 70%).",
+    "secondary_metrics": [
+      "Average number of hidden cost/credential ambiguities cited per participant",
+      "Willingness to spend 3-5 hours on a diagnostic trial project before enrolling (Target: ≥ 65%)",
+      "Reported distrust score towards edtech sales phone calls (1-5 scale)"
+    ],
+    "guardrails": [
+      "Informed consent obtained prior to recording",
+      "Zero PII stored in public repositories or project documentation; anonymized IDs only",
+      "No selling of any partner programs or advice during interviews"
+    ],
+    "required_resources": "Video conferencing tool, Calendly scheduling link, interview guide protocol, gift card incentive ($15 or ₹1,000 equivalent per completed session).",
+    "duration": "2 Weeks (10 business days)",
+    "decision_criteria": "Proceed if ≥ 14 of 20 participants (70%) identify pre-purchase skill-fit validation as a top-3 unmet need. If < 50%, pivot positioning towards post-enrollment tutoring or career coaching."
+  },
+  {
+    "id": "EXP-002",
+    "title": "Diagnostic Prototype Usability Testing",
+    "theme": "Prototype Usability & Cognitive Clarity",
+    "status": "Proposed",
+    "hypothesis": "Prospective learners can complete the deterministic diagnostic in under 3 minutes without facilitator assistance and correctly interpret their mini-project, rubric, and provider questions.",
+    "target_audience": "15 prospective learners representing all 4 target role tracks (Data Analyst, Data Engineer, AI Engineer, AI/Product Analyst).",
+    "method": "Moderated think-aloud usability sessions (n=10) followed by unmoderated screen-recorded task runs (n=15). Participants are asked to complete the diagnostic, explain what the output means, and review the checklist.",
+    "control_treatment": "N/A (Single-product usability test assessing task completion and comprehension).",
+    "primary_metric": "Unassisted Task Completion Rate: Percentage of participants who configure inputs, review recommendation, and expand rubric without navigational errors (Target: ≥ 85%).",
+    "secondary_metrics": [
+      "Average time on task (Target: < 180 seconds)",
+      "Comprehension accuracy score of evaluation rubric and provider questions (Target: ≥ 80% correct recall)",
+      "System Usability Scale (SUS) benchmark score (Target: ≥ 80 / 100)"
+    ],
+    "guardrails": [
+      "No diagnostic input data saved or transmitted over the wire (pure local state verification)",
+      "Clear explanation that results are advisory recommendations and do not certify job placement",
+      "Observer does not intervene unless participant is blocked for > 60 seconds"
+    ],
+    "required_resources": "Loom / OBS recording setup, prototype hosted on static URL, 5 standard user persona scenarios, standardized SUS survey form.",
+    "duration": "1 Week (5 business days)",
+    "decision_criteria": "Passes if unassisted completion is ≥ 85% and SUS score ≥ 80. If comprehension fails on the evaluation rubric, redesign output card with simpler tabular formatting before running public traffic."
+  },
+  {
+    "id": "EXP-003",
+    "title": "Curriculum-First vs. Proof-First Messaging A/B Test",
+    "theme": "GTM Positioning & Landing Page Conversion",
+    "status": "Proposed",
+    "hypothesis": "Positioning that highlights 'Proof Before Purchase: Test Your Real Project Fit' will generate a higher qualified consultation and diagnostic completion rate than standard 'Industry-Leading AI Curriculum' messaging.",
+    "target_audience": "Organic and targeted LinkedIn/community visitors actively browsing data & AI upskilling comparisons (minimum sample size: 500 unique visitors per variant).",
+    "method": "Split-traffic landing page experiment with identical visual layouts and identical comparison tools, varying only the hero value proposition and CTA framing.",
+    "control_treatment": "Control (Variant A): 'Master AI & Data Science with Top University Programs' (Curriculum & Credential-first CTA: 'Explore Programs'). Treatment (Variant B): 'Proof Before Purchase: Diagnose Your Role Fit & Build a Free Test Project' (Proof-first CTA: 'Start 3-Min Free Diagnostic').",
+    "primary_metric": "Qualified Engagement Rate: Diagnostic Completions divided by Eligible Unique Landing Page Visitors (Target: Treatment achieves ≥ 25% relative lift over Control at p < 0.05).",
+    "secondary_metrics": [
+      "Bounce rate per variant",
+      "Workbook download click rate",
+      "Downstream provider outbound source link clicks per visitor"
+    ],
+    "guardrails": [
+      "No deceptive dark patterns or countdown timers",
+      "Deterministic local diagnostic experience on both variants",
+      "Strict privacy-first analytics (privacy-preserving aggregate counts; zero cookies or IP harvesting)"
+    ],
+    "required_resources": "Static site deployment on Vercel with edge-split or clean A/B routing, organic social posts across tech communities (Reddit, LinkedIn, Twitter/X tech groups).",
+    "duration": "2 Weeks (or until 500 unique visits per variant is reached)",
+    "decision_criteria": "If Treatment out-converts Control with statistical confidence (p < 0.05), adopt Proof-First positioning as standard baseline. If Control wins or no difference, refine the diagnostic teaser copy."
+  },
+  {
+    "id": "EXP-004",
+    "title": "Sample-Project Preview & Rubric Engagement",
+    "theme": "Practical Engagement & Self-Evaluation Utility",
+    "status": "Proposed",
+    "hypothesis": "Learners who are provided with a concrete role-fit mini-project task and objective rubric will report higher decision confidence when evaluating whether to enroll in an expensive program.",
+    "target_audience": "Users who complete the diagnostic and view their recommended mini-project (Target: 100 engaged users).",
+    "method": "In-page interactive task preview offering users the option to inspect sample code, download project templates, and review self-grading checklist. Follow-up 1-click feedback widget: 'Did this preview clarify the day-to-day work required?'",
+    "control_treatment": "Control: Static syllabus text listing module topics. Treatment: Interactive mini-project brief with architecture diagram, test dataset snippet, and 3-tier scoring rubric.",
+    "primary_metric": "Decision Clarity Lift: Self-reported rating on 'Confidence in knowing whether this role suits me' (Target: Treatment mean ≥ 4.2/5 vs Control mean ≤ 3.1/5).",
+    "secondary_metrics": [
+      "Project brief download rate (Target: ≥ 30% of diagnostic completers)",
+      "Time spent actively inspecting the rubric card (Target: > 45 seconds)",
+      "Provider questions checklist interaction rate"
+    ],
+    "guardrails": [
+      "All sample project briefs use publicly accessible open datasets (e.g. NYC TLC, Kaggle Open, HuggingFace)",
+      "Clear notice that self-evaluation does not substitute for formal accredited testing",
+      "Zero telemetry tracking without explicit anonymous click action"
+    ],
+    "required_resources": "Pre-authored sample datasets, GitHub starter repositories for the 4 tracks, markdown project briefs.",
+    "duration": "2 Weeks",
+    "decision_criteria": "Adopt sample project previews permanently if Decision Clarity rating reaches ≥ 4.0/5 and download rate ≥ 25%. If < 15%, simplify project scope to 30-minute interactive notebooks."
+  },
+  {
+    "id": "EXP-005",
+    "title": "Transparent Program-Comparison Experience Testing",
+    "theme": "Consumer Trust & Decision Acceleration",
+    "status": "Proposed",
+    "hypothesis": "Providing an unbiased, source-linked competitor comparison table with disclosed tax caveats and project realities accelerates prospective learners' ability to ask targeted questions to sales reps.",
+    "target_audience": "Prospective students actively in dialogue with or evaluating at least two commercial programs (n=30).",
+    "method": "Users are provided with the interactive matrix and the downloadable audit workbook. A guided prompt tests whether they can successfully identify hidden costs and curriculum differences across upGrad, Simplilearn, and IIT Delhi.",
+    "control_treatment": "Control: Standard provider brochures and search engine queries. Treatment: Standardized Proof-Before-Purchase comparison table with verified evidence IDs, direct URLs, and GST warnings.",
+    "primary_metric": "Informed Decision Preparedness: Percentage of participants who state the tool revealed a material financial or structural caveat they were previously unaware of (Target: ≥ 75%).",
+    "secondary_metrics": [
+      "Total workbook (.xlsx) downloads",
+      "Click-through rate to official university partner accreditation pages",
+      "Qualitative feedback on transparency and perceived bias (Target: 0 accusations of commercial promotion)"
+    ],
+    "guardrails": [
+      "All claims must cite verifiable public URLs and access dates",
+      "Equal visual weighting across all 5 providers (no 'Featured' or 'Sponsored' badges)",
+      "Explicit statement that matrix is an educational research tool and does not provide financial or legal advice"
+    ],
+    "required_resources": "Interactive matrix UI, downloadable competitor_matrix.xlsx, post-interaction feedback questionnaire.",
+    "duration": "2 Weeks",
+    "decision_criteria": "If ≥ 75% report discovering unadvertised terms and 0 bias complaints occur, publish the matrix openly as a portfolio artifact and open-source benchmark tool."
+  }
+]

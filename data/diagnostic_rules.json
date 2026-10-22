@@ -1,0 +1,245 @@
+{
+  "roles": [
+    {
+      "id": "data_analyst",
+      "name": "Data Analyst",
+      "description": "Translates business questions into quantitative insights through exploratory analysis, SQL data modeling, visual analytics, and stakeholder dashboards.",
+      "available_gaps": [
+        "Advanced SQL (Window functions, CTEs, query optimization)",
+        "Statistical Analysis & A/B Testing",
+        "Business Intelligence Dashboards (Power BI / Tableau)",
+        "Python Data Wrangling (Pandas, Polars, Data Cleaning)",
+        "Executive Storytelling & Metric Decomposition"
+      ]
+    },
+    {
+      "id": "data_engineer",
+      "name": "Data Engineer",
+      "description": "Architects, constructs, and maintains robust data processing pipelines, ETL/ELT workflows, data warehouses, and streaming infrastructure.",
+      "available_gaps": [
+        "Data Warehouse Modeling (Star/Snowflake schema, dbt)",
+        "Workflow Orchestration (Airflow, Prefect, Dagster)",
+        "Distributed Computing (Spark, PySpark)",
+        "Cloud Storage & Lakehouses (AWS S3, Databricks, Snowflake)",
+        "Data Quality Validation & CI/CD Pipelines"
+      ]
+    },
+    {
+      "id": "ai_engineer",
+      "name": "AI Engineer",
+      "description": "Integrates machine learning models, modern LLMs, vector search, and agentic workflows into production software applications.",
+      "available_gaps": [
+        "Model Deployment & REST/gRPC APIs (FastAPI, Docker)",
+        "LLM Orchestration & RAG Systems (LangChain, LlamaIndex)",
+        "Vector Databases & Semantic Embeddings",
+        "Model Evaluation, Guardrails & LLM-as-a-Judge",
+        "Fine-tuning & Open Weights Optimization (LoRA, QLoRA)"
+      ]
+    },
+    {
+      "id": "ai_product_analyst",
+      "name": "AI/Product Analyst",
+      "description": "Bridges machine learning capabilities and product outcomes, evaluating feature impact, user behavior, latency/cost tradeoffs, and AI quality metrics.",
+      "available_gaps": [
+        "Product Funnel & Cohort Retention Analysis",
+        "AI Feature Performance Metrics (Perplexity, Hallucination Rate, Latency)",
+        "Unit Economics & Token Cost Optimization",
+        "Causal Inference & Quasi-Experiments (Diff-in-Diff)",
+        "User Feedback Loop Instrumentation & Telemetry"
+      ]
+    }
+  ],
+  "time_tiers": [
+    { "id": "tier_low", "label": "Under 5 hours/week", "pace": "Constrained / Micro-Sprint", "project_scale": "Focused Micro-Project (3-5 hrs total)" },
+    { "id": "tier_mid", "label": "5 - 10 hours/week", "pace": "Balanced Practitioner", "project_scale": "Standard End-to-End Project (8-12 hrs total)" },
+    { "id": "tier_high", "label": "10 - 15 hours/week", "pace": "Intensive Accelerator", "project_scale": "Production-Grade Capstone (15-20 hrs total)" },
+    { "id": "tier_ultra", "label": "15+ hours/week", "pace": "Full Immersion", "project_scale": "Comprehensive System Build with Full CI/CD (25+ hrs total)" }
+  ],
+  "experience_levels": [
+    { "id": "beginner", "label": "Beginner / Career Switcher", "modifier": "Emphasizes foundational mechanics, step-by-step validation, and clean baseline reproducibility." },
+    { "id": "intermediate", "label": "Intermediate / Practitioner", "modifier": "Emphasizes edge-case handling, modular architecture, and industry-standard tooling." },
+    { "id": "advanced", "label": "Advanced / Senior", "modifier": "Emphasizes distributed scalability, latency optimization, unit economics, and formal production deployment." }
+  ],
+  "outcome_goals": [
+    { "id": "portfolio", "label": "Portfolio Showcase", "focus": "Public GitHub repository with comprehensive README, live interactive demo, and clear documentation." },
+    { "id": "promotion", "label": "Work Promotion / Work Deliverable", "focus": "Immediate application to real internal datasets with executive-ready ROI business summary." },
+    { "id": "mastery", "label": "Concept Mastery", "focus": "Deep mathematical and programmatic intuition without reliance on black-box boilerplate." },
+    { "id": "career_switch", "label": "Career Switch Proof", "focus": "Proof-of-work artifact that answers typical technical interview take-home challenges." }
+  ],
+  "projects": {
+    "data_analyst": {
+      "tier_low": {
+        "title": "E-Commerce Customer Retention & Churn Diagnostic",
+        "description": "Analyze transactional purchase logs to identify drop-off points, cohort retention curves, and high-value customer cohorts using pure SQL and a clean visualization deck.",
+        "tools": "DuckDB / PostgreSQL, Pandas, Seaborn or Tableau Public",
+        "sample_data": "Online Retail II public dataset or Brazilian E-Commerce public dataset (Olist)",
+        "deliverable": "A structured SQL script with CTEs + an executive 3-slide visual deck outlining churn drivers and recommendations."
+      },
+      "tier_mid": {
+        "title": "SaaS Subscription Cohort & LTV Decomposition Dashboard",
+        "description": "Build an end-to-end cohort retention and MRR waterfall analysis modeling churn risk, expansion revenue, and customer lifetime value across acquisition channels.",
+        "tools": "PostgreSQL, Python (Pandas/Polars), Streamlit or Power BI",
+        "sample_data": "Synthesized B2B SaaS subscription billing records (50,000+ rows)",
+        "deliverable": "Interactive dashboard with dynamic date sliders, retention heatmaps, and automated cohort calculation queries."
+      },
+      "tier_high": {
+        "title": "Real-Time Marketplace Pricing & Demand Elasticity Analysis",
+        "description": "Formulate econometric regression models and an automated reporting workflow analyzing ride-hailing or hotel surge pricing dynamics and elasticity.",
+        "tools": "Python (Statsmodels, Scikit-learn), DuckDB, Plotly Dash",
+        "sample_data": "Public TLC Trip Record Data or Open Airbnb Listings data",
+        "deliverable": "Reproducible Jupyter notebook with econometric hypothesis tests, causal sanity checks, and a production dashboard."
+      },
+      "tier_ultra": {
+        "title": "Enterprise Financial Analytics Engine & Automated Anomaly Detection",
+        "description": "Construct an automated daily data audit and anomaly detection system for payment transactions, complete with email alerts and statistical process control.",
+        "tools": "SQL, Python, DuckDB, Metabase / Superset, GitHub Actions",
+        "sample_data": "Kaggle Credit Card Fraud & Transaction Logs",
+        "deliverable": "Automated pipeline running via CI/CD that extracts data, detects outliers, and pushes an updated reporting summary."
+      }
+    },
+    "data_engineer": {
+      "tier_low": {
+        "title": "Local SQLite to DuckDB ELT Pipeline with dbt Core",
+        "description": "Transform messy raw transactional CSVs into a dimensional Kimball star schema using dbt Core and DuckDB with automated schema tests.",
+        "tools": "DuckDB, dbt Core, Python",
+        "sample_data": "Synthesized retail point-of-sale data",
+        "deliverable": "A clean Git repo with documented dbt models, lineage DAG, and automated generic & singular tests."
+      },
+      "tier_mid": {
+        "title": "Automated Weather & Air Quality Lakehouse Pipeline",
+        "description": "Build an idempotent daily API ingestion pipeline extracting public environmental data, writing to partitioned Parquet, and serving SQL queries.",
+        "tools": "Python, Prefect / Airflow, DuckDB / MinIO S3, PyArrow",
+        "sample_data": "Open-Meteo free historical meteorological API",
+        "deliverable": "Dockerized orchestrator running daily ingest with retries, partition validation, and data quality check reporting."
+      },
+      "tier_high": {
+        "title": "Streaming Event Ingestion & Windowed Analytics Engine",
+        "description": "Stream clickstream events into a message broker, process aggregations with stream processing, and persist to an analytical columnar store.",
+        "tools": "Apache Kafka (or Redpanda), Spark Streaming / Bytewax, ClickHouse / DuckDB",
+        "sample_data": "Real-time synthetic IoT sensor or web event generator",
+        "deliverable": "Complete docker-compose stack with producer, real-time tumbling window consumer, and zero-data-loss validation test."
+      },
+      "tier_ultra": {
+        "title": "Enterprise Cloud Lakehouse with Delta Lake, dbt, & CI/CD",
+        "description": "Deploy a multi-hop (Bronze/Silver/Gold) architecture utilizing Delta Lake or Apache Iceberg with Great Expectations data quality gates.",
+        "tools": "Delta Lake, dbt Core, Apache Spark, GitHub Actions, MinIO",
+        "sample_data": "Multi-gigabyte public transaction dataset",
+        "deliverable": "Production repository featuring CI/CD automated linting (SQLFluff), schema drift detection, and automated backfill tooling."
+      }
+    },
+    "ai_engineer": {
+      "tier_low": {
+        "title": "Document QA RAG API with Vector Search & Citation Guardrails",
+        "description": "Develop a lightweight Retrieval-Augmented Generation (RAG) system that answers questions over technical PDF documentation with exact source page citations.",
+        "tools": "Python, FastAPI, ChromaDB / FAISS, Sentence-Transformers, HuggingFace Inference",
+        "sample_data": "Public cloud provider API documentation or financial quarterly 10-K filings",
+        "deliverable": "FastAPI endpoint accepting user queries and returning semantic answers with verifiable paragraph citations and confidence metrics."
+      },
+      "tier_mid": {
+        "title": "Production RAG Service with Hybrid Search & Re-ranking",
+        "description": "Build a production RAG application featuring hybrid BM25 + dense vector search, Cross-Encoder re-ranking, and automated chunking evaluation.",
+        "tools": "FastAPI, Qdrant / Weaviate, LangChain / LlamaIndex, Docker",
+        "sample_data": "Technical product troubleshooting documentation dataset",
+        "deliverable": "Dockerized container with streaming responses, conversation memory, hallucination check guardrails, and latency logs."
+      },
+      "tier_high": {
+        "title": "Agentic Tool-Calling Workflow with Evaluation Benchmark",
+        "description": "Construct an autonomous multi-step reasoning agent capable of querying external SQL databases, calculating metrics in Python, and returning validated answers.",
+        "tools": "FastAPI, LangGraph / CrewAI, SQLite, Ragas / TruLens, Docker",
+        "sample_data": "Company sales database + external currency exchange API",
+        "deliverable": "Agentic service with execution traces, loop-prevention guards, and an automated benchmark testing 50 complex multi-hop queries."
+      },
+      "tier_ultra": {
+        "title": "Domain-Specific LLM Fine-Tuning & Quantized Inference Server",
+        "description": "Fine-tune an open-source model (e.g. Llama-3-8B or Mistral) on custom instruction-response pairs using QLoRA, evaluate against test splits, and serve with vLLM.",
+        "tools": "PyTorch, HuggingFace TRL, PEFT, Unsloth, vLLM, Docker",
+        "sample_data": "Specialized legal or medical Q&A dataset",
+        "deliverable": "Fine-tuning loss curves, automated ROUGE/BLEU & LLM-as-judge benchmark, and an optimized sub-second inference container."
+      }
+    },
+    "ai_product_analyst": {
+      "tier_low": {
+        "title": "AI Feature Latency, Token Cost & Quality Audit Report",
+        "description": "Perform an empirical benchmark comparing 3 foundation models across response latency, prompt token overhead, cost-per-query, and output accuracy.",
+        "tools": "Python, Pandas, Seaborn, Litellm",
+        "sample_data": "Standardized benchmark prompt suite (100 synthetic customer service prompts)",
+        "deliverable": "Executive memo and cost sensitivity matrix showing projected monthly operational costs at 10k, 100k, and 1M queries."
+      },
+      "tier_mid": {
+        "title": "AI Search Feature A/B Test Design & Conversion Attribution",
+        "description": "Design and simulate a randomized controlled trial (A/B test) evaluating the conversion impact of an AI-powered conversational search bar vs traditional keyword search.",
+        "tools": "Python (Statsmodels, Scipy), Jupyter Notebook, Streamlit",
+        "sample_data": "Simulated e-commerce search logs with session durations and purchase flags",
+        "deliverable": "Full experiment design document: sample size power calculations, Minimum Detectable Effect (MDE), guardrail metrics, and simulated analysis script."
+      },
+      "tier_high": {
+        "title": "Comprehensive LLM Guardrail & Hallucination Telemetry Pipeline",
+        "description": "Instrument a live telemetry dashboard tracking toxicity, hallucination rates, user sentiment, and fallback rates for a customer-facing AI assistant.",
+        "tools": "Python, Prometheus / OpenTelemetry, Grafana / Streamlit, TruLens",
+        "sample_data": "Synthetic conversation logs with labeled edge-case failures",
+        "deliverable": "Real-time dashboard visualizing error budgets, user drop-off triggers, and automated alert criteria."
+      },
+      "tier_ultra": {
+        "title": "Causal Impact & Unit Economic Valuation of Enterprise AI",
+        "description": "Conduct a Difference-in-Differences and Synthetic Control analysis evaluating the operational productivity lift of an internal AI coding or support tool.",
+        "tools": "R / Python (CausalPy, DoWhy), DuckDB, Quarto / Markdown",
+        "sample_data": "Historical team velocity, ticket resolution time, and cost records across 12 months",
+        "deliverable": "Econometric report detailing causal effect estimation, placebo tests, and sensitivity analysis presented in an executive whitepaper."
+      }
+    }
+  },
+  "rubrics": {
+    "dimensions": [
+      {
+        "name": "Data Hygiene & Reproducibility",
+        "beginner": "Code runs with minor manual path edits; basic error handling; instructions present in README.",
+        "proficient": "Fully reproducible environment (requirements.txt / Pipfile); automated seed initialization; zero hardcoded credentials.",
+        "production_ready": "One-command Docker containerization; automated schema validation; comprehensive unit tests with CI workflow."
+      },
+      {
+        "name": "Methodological Rigor",
+        "beginner": "Applies standard textbook library calls; understands primary metrics (accuracy, precision, RMSE).",
+        "proficient": "Validates assumptions (baseline comparisons, cross-validation, data leakage prevention); isolates edge cases.",
+        "production_ready": "Benchmarked against realistic cost/latency tradeoffs; statistical significance testing; automated regression guardrails."
+      },
+      {
+        "name": "Business & Engineering Communication",
+        "beginner": "Outputs raw charts and code logs; identifies what the model or pipeline does.",
+        "proficient": "Translates technical metrics into concrete business implications; creates clean, readable architectural visual.",
+        "production_ready": "Executive-ready documentation highlighting unit economics, failure recovery procedures, and measurable ROI impact."
+      }
+    ]
+  },
+  "provider_questions": [
+    {
+      "id": "PQ-01",
+      "category": "Curriculum Depth",
+      "question": "What proportion of the hands-on projects require building from scratch vs. filling in missing lines in pre-configured Jupyter notebooks?",
+      "why_it_matters": "Pre-filled notebooks create an illusion of competence that quickly breaks down in technical coding interviews and real production settings."
+    },
+    {
+      "id": "PQ-02",
+      "category": "Credential & Alumni Status",
+      "question": "Does this program grant official alumni status, an institutional university email, or degree credits with the partnering university, or strictly a certificate of completion from their continuing education arm?",
+      "why_it_matters": "Marketing logos frequently suggest regular university association while legal contracts explicitly state continuing education status only."
+    },
+    {
+      "id": "PQ-03",
+      "category": "All-in Financial Commitment",
+      "question": "Is the quoted price inclusive of 18% GST, examination proctoring fees, platform access extension fees, and loan origination charges?",
+      "why_it_matters": "Unadvertised taxes and financing charges regularly add ₹35,000 to ₹60,000 to the real out-of-pocket tuition cost."
+    },
+    {
+      "id": "PQ-04",
+      "category": "Mentorship & Evaluation",
+      "question": "Who grades the capstone project—the tenured university professors shown on the brochure, or outsourced teaching assistants? What rubric is used for code review?",
+      "why_it_matters": "Syllabus marketing highlights distinguished professors, but daily code evaluations are almost exclusively handled by junior third-party contractors."
+    },
+    {
+      "id": "PQ-05",
+      "category": "Placement Transparency",
+      "question": "What was the unadjusted placement percentage of the most recently graduated cohort, excluding students who were already employed in data/AI roles prior to enrolling?",
+      "why_it_matters": "Reported 'salary hikes' and 'placement rates' are routinely inflated by counting existing tech workers who received routine corporate increments."
+    }
+  ]
+}

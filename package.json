@@ -1,0 +1,21 @@
+{
+  "name": "ai-competitive-intelligence-gtm-2026",
+  "version": "1.0.0",
+  "description": "Proof Before Purchase: AI/Data Learning-Program Competitive Intelligence & GTM Test Plan 2026",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node tests/run_tests.js",
+    "validate:data": "python scripts/validate_research_data.py",
+    "build:workbook": "python scripts/build_research_workbook.py"
+  },
+  "keywords": [
+    "competitive-intelligence",
+    "go-to-market",
+    "ai-upskilling",
+    "proof-before-purchase",
+    "role-fit-diagnostic"
+  ],
+  "author": "Antigravity Senior Team",
+  "license": "MIT"
+}
