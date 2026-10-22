@@ -35,7 +35,6 @@ const state = {
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  initMobileMenu();
   initSafeDownloads();
   renderOverviewKPIs();
   initMatrixFilters();
@@ -72,33 +71,8 @@ function initTheme() {
 function updateThemeIcon(btn, theme) {
   const isLight = theme === 'light';
   btn.innerHTML = isLight
-    ? '<span id="themeToggleIcon">🌙</span> <span class="theme-toggle-text">Dark</span>' 
-    : '<span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Light</span>';
-}
-
-// -------------------------------------------------------------
-// MOBILE DRAWER CONTROLLER
-// -------------------------------------------------------------
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const drawer = document.getElementById('mobileNavDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-  if (!menuBtn || !drawer) return;
-
-  menuBtn.addEventListener('click', () => {
-    const isOpen = drawer.classList.contains('open');
-    drawer.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', !isOpen);
-    menuBtn.innerHTML = isOpen ? '<span id="mobileMenuIcon">☰</span>' : '<span id="mobileMenuIcon">✕</span>';
-  });
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.innerHTML = '<span id="mobileMenuIcon">☰</span>';
-    });
-  });
+    ? '<span id="themeToggleIcon">🌙</span> <span class="theme-toggle-text">Night</span>' 
+    : '<span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Day</span>';
 }
 
 // -------------------------------------------------------------

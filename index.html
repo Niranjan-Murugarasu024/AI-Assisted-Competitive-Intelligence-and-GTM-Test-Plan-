@@ -25,6 +25,15 @@
         </div>
       </div>
 
+      <div class="nav-controls-left">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Day / Night theme">
+          <span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Day / Night</span>
+        </button>
+        <span class="privacy-badge" title="No network transmission of user inputs">
+          <span aria-hidden="true">🔒</span> <span class="privacy-text">Local-Only</span>
+        </span>
+      </div>
+
       <ul class="nav-links">
         <li><a href="#overview" id="nav-overview">Overview</a></li>
         <li><a href="#matrix" id="nav-matrix">Competitor Matrix</a></li>
@@ -34,32 +43,6 @@
         <li><a href="#experiments" id="nav-experiments">Experiments</a></li>
         <li><a href="#methodology" id="nav-methodology">Methodology</a></li>
         <li><a href="#downloads" id="nav-downloads">Downloads</a></li>
-      </ul>
-
-      <div class="nav-controls">
-        <span class="privacy-badge" title="No network transmission of user inputs">
-          <span aria-hidden="true">🔒</span> <span class="privacy-text">Local-Only</span>
-        </span>
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle visual color theme">
-          <span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Light</span>
-        </button>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span id="mobileMenuIcon">☰</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Drawer for viewports <= 1024px -->
-    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
-      <ul class="mobile-nav-links">
-        <li><a href="#overview" class="mobile-nav-link"><span>🏠</span> Overview</a></li>
-        <li><a href="#matrix" class="mobile-nav-link"><span>📊</span> Competitor Matrix</a></li>
-        <li><a href="#evidence" class="mobile-nav-link"><span>📑</span> Evidence & Insights</a></li>
-        <li><a href="#diagnostic" class="mobile-nav-link"><span>⚡</span> Role Diagnostic</a></li>
-        <li><a href="#gtm-strategy" class="mobile-nav-link"><span>🎯</span> GTM Strategy</a></li>
-        <li><a href="#experiments" class="mobile-nav-link"><span>🧪</span> Experiments</a></li>
-        <li><a href="#methodology" class="mobile-nav-link"><span>🔬</span> Methodology</a></li>
-        <li><a href="#downloads" class="mobile-nav-link"><span>📥</span> Downloads</a></li>
       </ul>
     </div>
   </nav>
