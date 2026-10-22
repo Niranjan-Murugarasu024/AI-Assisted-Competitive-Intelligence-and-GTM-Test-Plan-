@@ -38,12 +38,29 @@
 
       <div class="nav-controls">
         <span class="privacy-badge" title="No network transmission of user inputs">
-          <span aria-hidden="true">🔒</span> Local-Only
+          <span aria-hidden="true">🔒</span> <span class="privacy-text">Local-Only</span>
         </span>
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle visual color theme">
-          <span>☀️</span> Light Mode
+          <span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Light</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span id="mobileMenuIcon">☰</span>
         </button>
       </div>
+    </div>
+
+    <!-- Mobile Drawer for viewports <= 1024px -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#overview" class="mobile-nav-link"><span>🏠</span> Overview</a></li>
+        <li><a href="#matrix" class="mobile-nav-link"><span>📊</span> Competitor Matrix</a></li>
+        <li><a href="#evidence" class="mobile-nav-link"><span>📑</span> Evidence & Insights</a></li>
+        <li><a href="#diagnostic" class="mobile-nav-link"><span>⚡</span> Role Diagnostic</a></li>
+        <li><a href="#gtm-strategy" class="mobile-nav-link"><span>🎯</span> GTM Strategy</a></li>
+        <li><a href="#experiments" class="mobile-nav-link"><span>🧪</span> Experiments</a></li>
+        <li><a href="#methodology" class="mobile-nav-link"><span>🔬</span> Methodology</a></li>
+        <li><a href="#downloads" class="mobile-nav-link"><span>📥</span> Downloads</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -67,7 +84,7 @@
         <a href="#matrix" class="btn btn-secondary" id="btn-hero-matrix">
           <span>📊</span> Explore Competitor Matrix
         </a>
-        <a href="public/downloads/competitor_matrix.xlsx" class="btn btn-secondary" download id="btn-hero-download-wb">
+        <a href="public/downloads/competitor_matrix.xlsx" class="btn btn-secondary" download="proof_before_purchase_competitor_matrix.xlsx" id="btn-hero-download-wb">
           <span>📥</span> Download Audit Workbook (.xlsx)
         </a>
       </div>
@@ -544,7 +561,7 @@
               Excel-compatible spreadsheet (.xlsx) featuring all 6 audited sheets: Overview with live Excel formulas, Competitor Matrix, Sources & Caveats, Insight Ledger, GTM Experiments, and Build Log.
             </p>
           </div>
-          <a href="public/downloads/competitor_matrix.xlsx" download class="btn btn-primary" id="btn-dl-matrix-xlsx">
+          <a href="public/downloads/competitor_matrix.xlsx" download="proof_before_purchase_competitor_matrix.xlsx" class="btn btn-primary" id="btn-dl-matrix-xlsx">
             <span>⬇️</span> Download .xlsx
           </a>
         </div>
@@ -557,7 +574,7 @@
               Granular tabular record of 25 verified claims with Evidence IDs, exact URLs, access timestamps, quotations, and confidence classifications.
             </p>
           </div>
-          <a href="public/downloads/source_log.csv" download class="btn btn-secondary" id="btn-dl-source-csv">
+          <a href="public/downloads/source_log.csv" download="proof_before_purchase_source_log.csv" class="btn btn-secondary" id="btn-dl-source-csv">
             <span>⬇️</span> Download .csv
           </a>
         </div>

@@ -5,7 +5,7 @@
  * deterministic diagnostic state, and local-only privacy guarantees.
  */
 
-import { COMPETITOR_PROGRAMS, RESEARCH_INSIGHTS, GTM_EXPERIMENTS, DIAGNOSTIC_RULES_DATA } from './data_store.js';
+import { COMPETITOR_PROGRAMS, RESEARCH_INSIGHTS, GTM_EXPERIMENTS, DIAGNOSTIC_RULES_DATA, SOURCE_LOG_CSV_TEXT } from './data_store.js';
 import { filterPrograms, computeSummaryMetrics } from './filters.js';
 import { generateDiagnosticRecommendation, DIAGNOSTIC_ROLES } from './rules.js';
 import { validateDiagnosticInputs, sanitizeText } from './validation.js';
@@ -35,6 +35,8 @@ const state = {
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initMobileMenu();
+  initSafeDownloads();
   renderOverviewKPIs();
   initMatrixFilters();
   renderMatrixTable();
@@ -68,9 +70,62 @@ function initTheme() {
 }
 
 function updateThemeIcon(btn, theme) {
-  btn.innerHTML = theme === 'light' 
-    ? '<span>🌙</span> Dark Mode' 
-    : '<span>☀️</span> Light Mode';
+  const isLight = theme === 'light';
+  btn.innerHTML = isLight
+    ? '<span id="themeToggleIcon">🌙</span> <span class="theme-toggle-text">Dark</span>' 
+    : '<span id="themeToggleIcon">☀️</span> <span class="theme-toggle-text">Light</span>';
+}
+
+// -------------------------------------------------------------
+// MOBILE DRAWER CONTROLLER
+// -------------------------------------------------------------
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const drawer = document.getElementById('mobileNavDrawer');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  if (!menuBtn || !drawer) return;
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', !isOpen);
+    menuBtn.innerHTML = isOpen ? '<span id="mobileMenuIcon">☰</span>' : '<span id="mobileMenuIcon">✕</span>';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '<span id="mobileMenuIcon">☰</span>';
+    });
+  });
+}
+
+// -------------------------------------------------------------
+// SAFE VERIFIED CLIENT-SIDE DOWNLOADS (NO SYSTEM FILE WARNINGS)
+// -------------------------------------------------------------
+function initSafeDownloads() {
+  const csvBtn = document.getElementById('btn-dl-source-csv');
+  if (csvBtn) {
+    csvBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      try {
+        const blob = new Blob([SOURCE_LOG_CSV_TEXT.trim()], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'proof_before_purchase_source_log.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        console.info('[ProofBeforePurchase] Verified CSV source log downloaded cleanly as UTF-8 text/csv.');
+      } catch (err) {
+        console.error('Failed to trigger client-side CSV download, falling back to static path', err);
+        window.location.href = 'public/downloads/source_log.csv';
+      }
+    });
+  }
 }
 
 // -------------------------------------------------------------
@@ -420,15 +475,20 @@ function renderDiagnosticOutput(res, container) {
 
   container.innerHTML = `
     <div class="output-card" id="diagnostic-result-card">
-      <div class="output-hero">
-        <div class="output-badge-bar">
-          <span class="badge badge-info">${res.inputs.role}</span>
-          <span class="badge badge-neutral">${res.inputs.level}</span>
-          <span class="badge badge-warning">${res.project.pacingLabel}</span>
-          <span class="badge badge-success">${res.project.hoursBudget}</span>
+      <div class="output-hero" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="output-badge-bar">
+            <span class="badge badge-info">${res.inputs.role}</span>
+            <span class="badge badge-neutral">${res.inputs.level}</span>
+            <span class="badge badge-warning">${res.project.pacingLabel}</span>
+            <span class="badge badge-success">${res.project.hoursBudget}</span>
+          </div>
+          <h3 class="output-title" style="margin-top: 0.5rem;">${sanitizeText(res.project.title)}</h3>
+          <p class="output-desc">${sanitizeText(res.project.summary)}</p>
         </div>
-        <h3 class="output-title">${sanitizeText(res.project.title)}</h3>
-        <p class="output-desc">${sanitizeText(res.project.summary)}</p>
+        <button class="btn btn-secondary btn-sm" id="btn-copy-plan" style="align-self: flex-start;" aria-label="Copy entire verification plan to clipboard">
+          <span id="btn-copy-icon">📋</span> <span id="btn-copy-label">Copy Plan</span>
+        </button>
       </div>
 
       <div class="meta-box-grid">
@@ -518,6 +578,66 @@ function renderDiagnosticOutput(res, container) {
       </div>
     </div>
   `;
+
+  // Wire up Copy Plan button
+  const copyBtn = document.getElementById('btn-copy-plan');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const planText = formatPlanAsMarkdown(res);
+      try {
+        await navigator.clipboard.writeText(planText);
+        copyBtn.innerHTML = '<span>✓</span> <span>Plan Copied!</span>';
+        copyBtn.classList.remove('btn-secondary');
+        copyBtn.classList.add('btn-primary');
+        setTimeout(() => {
+          copyBtn.innerHTML = '<span id="btn-copy-icon">📋</span> <span id="btn-copy-label">Copy Plan</span>';
+          copyBtn.classList.remove('btn-primary');
+          copyBtn.classList.add('btn-secondary');
+        }, 2200);
+      } catch (err) {
+        console.warn('Clipboard writeText failed, fallback selection', err);
+        const textarea = document.createElement('textarea');
+        textarea.value = planText;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        copyBtn.innerHTML = '<span>✓</span> <span>Copied!</span>';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<span>📋</span> <span>Copy Plan</span>';
+        }, 2000);
+      }
+    });
+  }
+}
+
+function formatPlanAsMarkdown(res) {
+  return `# PROOF BEFORE PURCHASE: ROLE-FIT VERIFICATION PLAN
+Target Role: ${res.inputs.role} (${res.inputs.level})
+Pacing: ${res.project.pacingLabel} (${res.project.hoursBudget})
+Goal: ${res.inputs.outcomeGoal}
+
+## PROJECT: ${res.project.title}
+${res.project.summary}
+
+Recommended Tools: ${res.project.tools}
+Sample Benchmark Data: ${res.project.sampleData}
+Rationale: ${res.project.rationale}
+
+## MILESTONE CHECKLIST
+${res.checklist.map(c => `- [ ] ${c.id}: ${c.milestone} - ${c.detail}`).join('\n')}
+
+## 3-TIER EVALUATION RUBRIC
+${res.rubric.map(r => `### ${r.dimension}
+- Beginner: ${r.beginner}
+- Proficient: ${r.proficient}
+- Production-Ready: ${r.production_ready}`).join('\n\n')}
+
+## ADMISSIONS COUNSELOR VERIFICATION QUESTIONS
+${res.providerQuestions.map(q => `[${q.id}] ${q.category}: "${q.question}"\nWhy it matters: ${q.why_it_matters}`).join('\n\n')}
+
+Notice: ${res.disclaimer}
+Generated deterministically via Proof Before Purchase (2026). Zero tracking or third-party telemetry.`;
 }
 
 function resetDiagnosticForm() {

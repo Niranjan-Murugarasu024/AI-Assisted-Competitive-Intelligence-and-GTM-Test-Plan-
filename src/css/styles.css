@@ -347,22 +347,103 @@ section {
   transform: translateY(-1px);
 }
 
-@media (max-width: 1200px) {
-  .nav-content {
-    gap: 0.75rem;
-  }
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+}
+
+.mobile-nav-drawer {
+  display: none;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem 1.25rem;
+  animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav-drawer.open {
+  display: block;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
   .nav-links {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding: 0.2rem 0;
+    display: none !important;
   }
-  .nav-links::-webkit-scrollbar {
-    display: none;
+  .mobile-menu-btn {
+    display: inline-flex !important;
   }
-  .nav-links a {
-    padding: 0.4rem 0.5rem;
-    font-size: 0.82rem;
+}
+
+@media (max-width: 600px) {
+  .brand-tag {
+    display: none !important;
+  }
+  .privacy-text {
+    display: none !important;
+  }
+  .theme-toggle-text {
+    display: none !important;
+  }
+  .brand-text {
+    font-size: 1rem;
+  }
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  .container {
+    padding: 0 1rem;
   }
 }
 
