@@ -191,13 +191,13 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <span id="matrix-count-display" style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span id="matrix-count-display" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main);">
           Showing 5 of 5 audited programs
         </span>
-        <span style="font-size: 0.78rem; color: var(--text-dim);">
-          * No synthetic rankings. Programs evaluated on objective verified attributes.
-        </span>
+        <div class="table-scroll-hint">
+          <span>⇄</span> Scroll horizontally to compare all 7 columns & source links
+        </div>
       </div>
 
       <!-- Comparison Data Table -->
@@ -205,13 +205,13 @@
         <table class="matrix-table" id="competitor-matrix-table" aria-label="Competitor Intelligence Matrix">
           <thead>
             <tr>
-              <th scope="col" style="min-width: 190px;">Provider & Program</th>
-              <th scope="col" style="min-width: 170px;">Academic Partner & Credential</th>
-              <th scope="col" style="min-width: 180px;">Realized Price & Tax Terms</th>
-              <th scope="col" style="min-width: 150px;">Duration & Workload</th>
-              <th scope="col" style="min-width: 200px;">Hands-on Projects</th>
-              <th scope="col" style="min-width: 220px;">Career Claims & Legal Caveats</th>
-              <th scope="col" style="min-width: 110px;">Verification</th>
+              <th scope="col" style="min-width: 220px; width: 230px;">Provider & Program</th>
+              <th scope="col" style="min-width: 210px; width: 220px;">Academic Partner & Credential</th>
+              <th scope="col" style="min-width: 210px; width: 220px;">Realized Price & Tax Terms</th>
+              <th scope="col" style="min-width: 190px; width: 200px;">Duration & Workload</th>
+              <th scope="col" style="min-width: 230px; width: 240px;">Hands-on Projects</th>
+              <th scope="col" style="min-width: 320px; width: 340px;">Career Claims & Legal Caveats</th>
+              <th scope="col" style="min-width: 130px; width: 140px;">Verification</th>
             </tr>
           </thead>
           <tbody id="matrix-table-body">

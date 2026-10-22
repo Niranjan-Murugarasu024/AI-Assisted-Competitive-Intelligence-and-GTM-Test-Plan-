@@ -59,30 +59,34 @@
 [data-theme="light"] {
   --bg-primary: #f8fafc;
   --bg-secondary: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --bg-card-hover: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
   --bg-input: #ffffff;
-  --border-subtle: #e2e8f0;
+  --border-subtle: #cbd5e1;
   --border-focus: #4f46e5;
-  --border-highlight: rgba(79, 70, 229, 0.2);
+  --border-highlight: rgba(79, 70, 229, 0.25);
 
   --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
+  --text-muted: #334155;
+  --text-dim: #475569;
   --text-inverse: #ffffff;
 
   --accent-primary: #4f46e5;
   --accent-primary-hover: #4338ca;
   --accent-primary-glow: rgba(79, 70, 229, 0.15);
+  --accent-cyan: #0284c7;
+  --accent-emerald: #059669;
+  --accent-amber: #b45309;
+  --accent-rose: #e11d48;
 
-  --badge-bg-neutral: #e2e8f0;
-  --badge-text-neutral: #334155;
+  --badge-bg-neutral: #f1f5f9;
+  --badge-text-neutral: #1e293b;
   --badge-bg-success: #dcfce7;
   --badge-text-success: #15803d;
   --badge-bg-warning: #fef3c7;
-  --badge-text-warning: #b45309;
+  --badge-text-warning: #92400e;
   --badge-bg-info: #e0e7ff;
-  --badge-text-info: #4338ca;
+  --badge-text-info: #3730a3;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -523,6 +527,20 @@ section {
 }
 
 /* Table Styles */
+.table-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  background: var(--bg-secondary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+}
+
 .table-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -530,11 +548,15 @@ section {
   overflow-x: auto;
   box-shadow: var(--shadow-md);
   margin-bottom: 1.5rem;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .matrix-table {
   width: 100%;
-  border-collapse: collapse;
+  min-width: 1450px;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
   font-size: 0.88rem;
 }
@@ -542,20 +564,21 @@ section {
 .matrix-table th {
   background: var(--bg-secondary);
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.15rem 1.25rem;
+  border-bottom: 2px solid var(--border-subtle);
   white-space: nowrap;
 }
 
 .matrix-table td {
-  padding: 1rem;
+  padding: 1.35rem 1.25rem;
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-main);
   vertical-align: top;
+  line-height: 1.6;
 }
 
 .matrix-table tr:last-child td {
@@ -568,41 +591,50 @@ section {
 
 .program-provider {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--text-main);
+  line-height: 1.25;
 }
 
 .program-name {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  margin-top: 0.15rem;
+  margin-top: 0.3rem;
+  line-height: 1.45;
 }
 
 .price-headline {
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1.1rem;
   color: var(--accent-emerald);
   font-family: var(--font-heading);
+  letter-spacing: -0.01em;
 }
 
 .tax-badge-warning {
-  display: inline-block;
-  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
   color: var(--accent-amber);
   background: var(--badge-bg-warning);
-  padding: 0.15rem 0.45rem;
+  padding: 0.25rem 0.55rem;
   border-radius: var(--radius-sm);
-  margin-top: 0.25rem;
-  font-weight: 600;
+  margin-top: 0.35rem;
+  font-weight: 700;
+  border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
 .caveat-box {
   background: var(--badge-bg-neutral);
-  border-left: 3px solid var(--accent-primary);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.78rem;
+  border: 1px solid var(--border-subtle);
+  border-left: 3.5px solid var(--accent-primary);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--text-muted);
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
 }
 
 /* Badges */

@@ -210,37 +210,37 @@ function renderMatrixTable() {
         <td>
           <div class="program-provider">${sanitizeText(prog.provider)}</div>
           <div class="program-name">${sanitizeText(prog.program_name)}</div>
-          <div style="margin-top: 0.35rem;">
+          <div style="margin-top: 0.45rem;">
             <span class="badge badge-info">${sanitizeText(prog.id)}</span>
           </div>
         </td>
         <td>
-          <div style="font-weight: 600; color: var(--text-main);">${sanitizeText(prog.credential_partner)}</div>
-          <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.2rem;">${sanitizeText(prog.credential_category)}</div>
+          <div style="font-weight: 600; font-size: 0.92rem; color: var(--text-main); line-height: 1.45;">${sanitizeText(prog.credential_partner)}</div>
+          <div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 0.35rem; font-weight: 500;">${sanitizeText(prog.credential_category)}</div>
         </td>
         <td>
           <div class="price-headline">${sanitizeText(prog.published_price_display)}</div>
           ${taxWarningHtml}
-          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.25rem;">${sanitizeText(prog.financing_terms)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.4rem; line-height: 1.45;">${sanitizeText(prog.financing_terms)}</div>
         </td>
         <td>
-          <div style="font-weight: 600;">${sanitizeText(prog.duration_display)}</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">${sanitizeText(prog.weekly_hours_display)}</div>
-          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem;">${sanitizeText(prog.delivery_format)}</div>
+          <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">${sanitizeText(prog.duration_display)}</div>
+          <div style="font-size: 0.84rem; font-weight: 600; color: var(--accent-primary); margin-top: 0.25rem;">${sanitizeText(prog.weekly_hours_display)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.35rem; line-height: 1.45;">${sanitizeText(prog.delivery_format)}</div>
         </td>
         <td>
-          <div style="font-weight: 600; color: var(--accent-cyan);">${prog.hands_on_projects_count}+ Projects</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">${sanitizeText(prog.projects_description)}</div>
-          <div style="margin-top: 0.3rem;">
+          <div style="font-weight: 700; font-size: 1rem; color: var(--accent-cyan);">${prog.hands_on_projects_count}+ Projects</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.45;">${sanitizeText(prog.projects_description)}</div>
+          <div style="margin-top: 0.45rem;">
             <span class="badge ${prog.capstone_included ? 'badge-success' : 'badge-neutral'}">
               ${prog.capstone_included ? '✓ Capstone Included' : 'No Capstone'}
             </span>
           </div>
         </td>
         <td>
-          <div style="font-size: 0.82rem; color: var(--text-main);">${sanitizeText(prog.career_support_claims)}</div>
+          <div style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5;">${sanitizeText(prog.career_support_claims)}</div>
           <div class="caveat-box">
-            <strong>Legal Caveat:</strong> ${sanitizeText(prog.caveats)}
+            <strong style="color: var(--text-main);">Legal Caveat:</strong> ${sanitizeText(prog.caveats)}
           </div>
         </td>
         <td style="white-space: nowrap;">
